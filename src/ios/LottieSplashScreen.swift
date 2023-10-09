@@ -263,7 +263,7 @@ import Lottie
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(deviceOrientationChanged),
-            name: UIDevice.orientationDidChangeNotification,
+            name: NSNotification.Name.UIDeviceOrientationDidChange,
             object: nil
         )
     }
