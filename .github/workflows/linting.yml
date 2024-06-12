@@ -11,9 +11,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4.0.0
+      - uses: actions/checkout@v4.1.6
 
-      - uses: actions/setup-node@v3.8.1
+      - uses: actions/setup-node@v4.0.2
         with:
           node-version: 18
 
@@ -25,6 +25,7 @@ jobs:
       - name: Setup
         run: |
           brew install ktlint
+          brew install swiftlint
           swiftlint version
           npm ci
 
@@ -41,6 +42,6 @@ jobs:
 
     steps:
       - name: Automatically merge dependabot upgrades
-        uses: fastify/github-action-merge-dependabot@v3.9.1
+        uses: fastify/github-action-merge-dependabot@v3.10.1
         with:
           target: minor
