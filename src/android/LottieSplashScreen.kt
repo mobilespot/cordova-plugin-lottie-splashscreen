@@ -230,12 +230,12 @@ class LottieSplashScreen : CordovaPlugin() {
             ColorHelper.parseColor(
                 getUIModeDependentPreference(
                     "LottieBackgroundColor",
-                    "#ffffff",
+                    "#00D072",
                 ),
             )
         animationView.setBackgroundColor(color)
 
-        val fullScreen = preferences.getBoolean("LottieFullScreen", false)
+        val fullScreen = preferences.getBoolean("LottieFullScreen", true)
         splashDialog =
             Dialog(
                 context,
@@ -253,7 +253,7 @@ class LottieSplashScreen : CordovaPlugin() {
         width: Double? = null,
         height: Double? = null,
     ) {
-        val fullScreen = preferences.getBoolean("LottieFullScreen", false)
+        val fullScreen = preferences.getBoolean("LottieFullScreen", true)
         if (!fullScreen) {
             val relativeSize = preferences.getBoolean("LottieRelativeSize", false)
             if (relativeSize) {
@@ -370,8 +370,8 @@ class LottieSplashScreen : CordovaPlugin() {
         var preferenceValue: String
         preferenceValue =
             when {
-                nightMode -> preferences.getString("""${preferenceBaseName}Dark""", defaultValue)
-                else -> preferences.getString("""${preferenceBaseName}Light""", defaultValue)
+                nightMode -> preferences.getString("""${preferenceBaseName}Dark""", "")
+                else -> preferences.getString("""${preferenceBaseName}Light""", "")
             }
 
         if (preferenceValue.isBlank()) {
